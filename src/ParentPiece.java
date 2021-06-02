@@ -22,4 +22,8 @@ public abstract class ParentPiece implements ChessPiece {
     public int getColumn() {
         return c;
     }
+
+    public String getColor() {
+        return color;
+    }
 }

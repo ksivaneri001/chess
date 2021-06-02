@@ -15,10 +15,7 @@ public class Rook extends ParentPiece {
     }
 
     public boolean canKill(ChessPiece piece) {
-        if (this.color.equals("White") && Math.abs(piece.getColumn() - this.getColumn()) == 1 && piece.getRow() - this.getRow() == 1) return true;
-        if (this.color.equals("Black") && Math.abs(piece.getColumn() - this.getColumn()) == 1 && piece.getRow() - this.getRow() == -1) return true;
-        return false;
+        if (this.getColumn() == piece.getColumn() && this.getRow() != piece.getRow() && !piece.getColor().equals(this.getColor())) return true;
+        return (this.getColumn() != piece.getColumn() && this.getRow() == piece.getRow() && !piece.getColor().equals(this.getColor()));
     }
-
-
 }
