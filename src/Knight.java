@@ -10,10 +10,12 @@ public class Knight extends ParentPiece {
         }
         if (row > 7 || row < 0) return false;
         if (col > 7 || col < 0) return false;
-        if (Math.abs(row - ))
+        if (Math.abs(row - this.getRow()) == 2 && Math.abs(col - this.getColumn()) == 1) return true;
+        return (Math.abs(row - this.getRow()) == 1 && Math.abs(col - this.getColumn()) == 2);
     }
 
     public boolean canKill(ChessPiece piece) {
-        return (Math.abs(piece.getRow() - this.getRow()) == Math.abs(piece.getColumn() - this.getColumn()) && piece.getRow() != this.getRow() && piece.getColumn() != this.getColumn() && !piece.getColor().equals(this.getColor()));
+        if (Math.abs(piece.getRow() - this.getRow()) == 2 && Math.abs(piece.getColumn() - this.getColumn()) == 1 && !piece.getColor().equals(this.getColor())) return true;
+        return (Math.abs(piece.getRow() - this.getRow()) == 1 && Math.abs(piece.getColumn() - this.getColumn()) == 2 && !piece.getColor().equals(this.getColor()));
     }
 }
